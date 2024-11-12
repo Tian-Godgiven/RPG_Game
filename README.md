@@ -2,16 +2,16 @@
 
 简介：一款以“角色扮演游戏(RPG)”为核心内容的游戏。
 
-框架：jquery ，d3 → svelte + electron + nodejs
-语言：h5 + scss + ts
-平台：PC端
+框架：jquery ，d3 → svelte + electron + nodejs  
+语言：h5 + scss + ts  
+平台：PC端  
 类型：应用程序，独立游戏
 
 ---
 
 # 目录
 
--[项目介绍](#项目介绍)
+-[项目介绍 ](#项目介绍)   
 -[开发进度](#开发进度)
 
 # 阶段性项目图片展示
@@ -20,7 +20,7 @@
 
 # 项目介绍
 
-本项目基于RPG团进行制作：[点击查看超长RPG团](https://www.nmbxd1.com/t/52825229?r=52825229&scrollInto=true)
+本项目基于RPG团进行制作：[点击查看超长RPG团](https://www.nmbxd1.com/t/52825229?r=52825229&scrollInto=true)  
 已获得作者本人授权，由我代为编程制作。
 
 ### 我知道简介听上去完全就是废话
@@ -40,7 +40,7 @@
 
 # 开发进度
 
-当前阶段：重构
+当前阶段：重构  
 下一阶段：先做个组队打怪升级的游戏吧！
 
 已完成：undefined
