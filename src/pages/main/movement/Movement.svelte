@@ -3,7 +3,7 @@
         {#each nowMovements as movement}
         <div>
             <div class="block" on:click={movement.click} on:mouseenter={moveIn} on:mouseleave={moveOut}>
-                <div class="white">{movement.text}</div>
+                <div class="white">{movement.label}</div>
             </div>
         </div>
         {/each}
@@ -17,6 +17,7 @@
     function moveIn() {
         var white_div = $(this).find(".movement_box_white");
         if ($(white_div).data("has-clone") != true) {
+            //创建黑色的克隆
             var black_div = white_div.clone()
             $(black_div).attr("class","movement_box_black")
             $(black_div).appendTo(this);
@@ -34,8 +35,7 @@
         var white_div = $(this).find(".movement_box_white");
         var Height = white_div.height();
         if (Height <= 128) {
-            white_div.stop(true,false).animate({height: 128}, 250, "swing",function() {
-            });
+            white_div.stop(true,false).animate({height: 128}, 250, "swing");
         }
     };
 </script>

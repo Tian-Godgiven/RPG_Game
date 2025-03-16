@@ -11,7 +11,8 @@
 
 <script lang='ts'>
     import { controlPage } from "../../lib/hooks/changePage";
-    import { startNewgame,startOldgame } from "./start";
+    import { startNewgame } from "../main/scene/newGame/newGame";
+    import { startOldgame } from "./start";
     import StartBlock from "./StartBlock.svelte";
 
     export const list = [
@@ -28,6 +29,7 @@
 
     const lastBlock = list.at(-1)
 
+    //切换到主界面
     function changePage(){
         controlPage("start",false)
         controlPage("main",true)

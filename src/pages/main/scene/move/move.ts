@@ -1,7 +1,9 @@
 
 
-import { getFocusingArea } from "../../../lib/hooks/ability_function";
-import { printLog } from "../../information/logs";
+import type { Area } from "../../../../interface/entity/Area";
+import { getFocusingArea } from "../../../../lib/hooks/ability_function";
+import { printEntity, printLog } from "../../../information/logs";
+import { moveToOutside } from "../outside/outside";
 import { changeScene } from "../scene";
 
 //点击【移动】切换至move界面
@@ -21,7 +23,7 @@ export function changeToMove(){
 //点击【进入】键
 $("#jianjie").on("mousedown",".map_enter",function(){
 	var id = $(this).data("id")
-	moveToArea(All_entity[id])
+	moveToArea(AllEntity[id])
 })
 
 //前往某一地点
@@ -29,13 +31,13 @@ export function moveToArea(area?:Area){
     if(!area){
         area = getFocusingArea()
     }
-	printLog("你来到了" + make_log_span(area))
+	printLog("你来到了" + printEntity(area))
 
 	if(area["name"] == "城镇"){
 		move_to_city()
 	}
 	if(area["type"] == "野外"){
-		move_to_outside(area)
+		moveToOutside(area)
 	}
 }
 
@@ -89,7 +91,7 @@ function unlock_after(area){
 }
 //地图信息展示
 $("#world_map").on("mousedown",".map_div",function(){
-	show_jianjie(All_entity[this.id])
+	show_jianjie(AllEntity[this.id])
 })
 
 

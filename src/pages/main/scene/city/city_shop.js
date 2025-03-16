@@ -21,12 +21,12 @@ $("#movement_container").on("mousedown","#movement_return",function(){
 		return false
 	}
 	movement("return")
-	print_log("你返回了城镇……")
+	printLog("你返回了城镇……")
 })
 
 //点击商店界面的具体对象，使得information栏显示该物品的简介，并加入购物篮
 $(".shop_page").on("mousedown",".object",function(){
-	var obj = All_entity[this.id]
+	var obj = AllEntity[this.id]
 	show_jianjie(obj)
 	unfold_buy_block()
 	add_into_buyBlock(obj)
@@ -65,7 +65,7 @@ $(".shop_page").on("mousedown",".object",function(){
 
 //针对冒险者工会的功能
 $(".shop_page").on("mousedown",".character",function(){
-	var character = All_entity[this.id]
+	var character = AllEntity[this.id]
 	show_jianjie(character)
 })
 

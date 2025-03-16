@@ -14,7 +14,7 @@ function make_select_block(id){
 		if($(this).css("display")=="none"){
 			return false;
 		}
-		var obj=All_entity[this.id]
+		var obj=AllEntity[this.id]
 		if(obj != null){
 			var type = obj["type"];
 			if(!select_types.includes(type)){
@@ -65,7 +65,7 @@ function select_types(){
 	}
 	else{
 		var select_doms= $(focusing_table).children().children().filter(function(){
-			var obj=All_entity[this.id];
+			var obj=AllEntity[this.id];
 			if(obj != null){
 				if(obj["type"] == type){
 					return this
@@ -98,7 +98,7 @@ function select_price() {
     //这个页面中价格大于small，且小于big的obj
 		var select_objs= $(focusing_table).children().children().filter(function(){
 			if($(this).css("display") !== "none"){
-				var obj=All_entity[this.id]
+				var obj=AllEntity[this.id]
 				if(obj != null){
 					var price = parseInt(obj["price"].match(/\d+/)[0], 10);
 					if(price >= small && price <= big){

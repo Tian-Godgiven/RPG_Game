@@ -1,6 +1,6 @@
 function character_equip(character_id,equipment_id){
 	var character = team[character_id];
-	var equipment = All_entity[equipment_id];
+	var equipment = AllEntity[equipment_id];
 	//判断是否满足requirment
 	var result = status_requirement(character_id,equipment_id)
 	if(result == true){
@@ -11,7 +11,7 @@ function character_equip(character_id,equipment_id){
 			var hand = character["hand"]
 			//如果不能，则提示替换
 			if(hand < handed){
-				print_log(make_log_span(character_id)+"的武器数量已达上限，无法装备"+make_log_span(equipment_id))
+				printLog(printEntity(character_id)+"的武器数量已达上限，无法装备"+printEntity(equipment_id))
 			}
 			//否则修改单位的handed与武器
 			else{
@@ -24,7 +24,7 @@ function character_equip(character_id,equipment_id){
 		}
 	}
 	else{
-		print_log("无法满足"+make_log_span(equipment_id)+"的装备需求")
+		printLog("无法满足"+printEntity(equipment_id)+"的装备需求")
 		return false
 	}
 }
@@ -37,7 +37,7 @@ function character_equip(character_id,equipment_id){
 
 //属性条件
 function status_requirement(character_id,entity_id){
-	var requirments = All_entity[entity_id]["requirement"]
+	var requirments = AllEntity[entity_id]["requirement"]
 	if(requirments == "无"){
 		return true;
 	}
@@ -49,7 +49,7 @@ function status_requirement(character_id,entity_id){
 			var a_num = a.match(/\d+/g)
 			//检索角色的属性是否能够满足这个需求,只要有一个不满足就false
 			if(team[character_id]["status"][a_name] < a_num){
-				print_log(make_log_span(character_id)+"的"+a_name+"属性不足")
+				printLog(printEntity(character_id)+"的"+a_name+"属性不足")
 				return false
 			} 
 		}
@@ -60,7 +60,7 @@ function status_requirement(character_id,entity_id){
 		var a_name = a.replace(/\d+/g, '')
 		var a_num = a.match(/\d+/g)
 		if(team[character_id]["status"][a_name] < a_num){
-			print_log(make_log_span(character_id)+"的"+a_name+"属性不足")
+			printLog(printEntity(character_id)+"的"+a_name+"属性不足")
 			return false
 		} 
 		else{

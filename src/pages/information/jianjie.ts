@@ -5,7 +5,7 @@ export const redoList:string[]=[]
 
 //简介栏中的entity可以被进一步点击并生成覆盖的jianjie
 $("#jianjie").on('mousedown',".entity",function(){
-	var entity = All_entity[this.id]
+	var entity = AllEntity[this.id]
 	showJianjie(entity)
 })
 
@@ -211,7 +211,7 @@ function set_entity_dom(data,num){
 			return false
 		}
 		var id = i;
-		var name = All_entity[i]["name"]
+		var name = AllEntity[i]["name"]
 		var inner_div = '<div id="'+id+'" class="entity">'+name+'</div>'
 		div+=inner_div
 	}

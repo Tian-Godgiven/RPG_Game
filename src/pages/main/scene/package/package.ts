@@ -1,18 +1,19 @@
-import { printLog } from "../../information/logs";
+import type { Entity } from "../../../../interface/entity/Entity";
+import { printEntity, printLog } from "../../../information/logs";
 import { changeScene } from "../scene";
 
 //背包对象，以id:obj形式保存背包内的物品与道具
-const packages = new Array()
-//Money对象，结构与Obj类似但是少了许多不必要的内容
-var money = {
-	  	id: "money_00001",
-	  	name: "G",
-	  	num:"",
-	  	type:"货币",
-	  	description: "用于衡量价值的东西，最好多来点"
-	};
+const packages:Record<string,Entity> = {}
+//默认的Money对象，结构与Obj类似但是少了许多不必要的内容
+const idleMoney = {
+    id: "money_00001",
+    name: "G",
+    num:0,
+    type:"货币",
+    description: "用于衡量价值的东西，最好多来点"
+};
 
-packages[money.id] = money;
+packages[idleMoney.id] = idleMoney;
 
 
 //切换到背包界面
@@ -152,22 +153,23 @@ function change_package_table(type){
 
 //点击背包里的物品，同样会在jianjie中显示信息
 $(".package_page").on("mousedown",".entity",function(){
-	var obj = package[this.id]
+	var obj = packages[this.id]
 	show_jianjie(obj)
 })
 
 
 
-//物品进入背包内时，将Obj对象和数量加入背包字典中,若之前没有这个对象，则要设定一下数量
-function get_into_package(obj,number){
-	package[obj.id] = obj;
-	if(package[obj.id]["num"] == null){
-		package[obj.id]["num"] = number
+//物品进入背包内时，将Obj对象和数量加入背包字典中,
+export function getToPackage(obj:Entity,number:number){
+	const inPackage =  packages[obj.id]
+    //若之前没有这个对象，则要设定一下数量
+	if(inPackage["num"] == null){
+		packages[obj.id]["num"] = number
 	}
 	else{
-		package[obj.id]["num"] += number;
+		packages[obj.id]["num"] += number;
 	}
-	print_log('获得了' + make_log_span(obj.id) + 'x'+ number)
+	printLog('获得了' + printEntity(obj) + 'x'+ number)
 }
 
 //从背包内使用道具时，首先判断使用需求，满足时将obj对象的数量减少，若数量不足，则返回false
@@ -176,7 +178,7 @@ function use_from_package(target_id,obj_id,number){
 	var type = $("#package_use_top").html()
 	//数量不足
 	if(obj["num"] < number){
-		print_log(make_log_span(obj_id) + "的数量不足")
+		printLog(printEntity(obj_id) + "的数量不足")
 		return false
 	}
 	//数量足够则减少并更新数量栏的内容
@@ -347,38 +349,39 @@ $("#package_use").on("mousedown",".package_target",function(){
 	var type = $("#package_use_top").html()
 
 	if(use_from_package(target_id,obj_id,1)){
-		print_log(make_log_span(target_id) + type + "了"+ make_log_span(obj_id) +"x1")
+		printLog(printEntity(target_id) + type + "了"+ printEntity(obj_id) +"x1")
 	}
 
 })
 
 //把货币对象和物品对象拆开来调用
 //获取到货币时，货币数量上升
-function get_money(the_money,number){
-	if(the_money == null){
-		package[money.id]["num"] += number;
-		print_log("获得了"+number+make_log_span(money.id))
+export function getMoney(money:Entity|null,number:number){
+    //没有指定货币对象时，获取默认的货币对象
+	if(money == null){
+		packages[idleMoney.id]["num"] += number;
+		printLog("获得了"+number+printEntity(idleMoney))
 	}
 	else{
-		package[the_money.id]["num"] += number;
-		print_log("获得了"+number+make_log_span(the_money.id))		
+		packages[money.id]["num"] += number;
+		printLog("获得了"+number+printEntity(money))		
 	}
 }
-function use_money(number){
-	if(number <= package[money.id]["num"]){
-		package[money.id]["num"] -= number;
-		print_log("消费了"+number+make_log_span(money.id))
+export function useMoney(number:number){
+	if(number <= packages[idleMoney.id]["num"]){
+		packages[idleMoney.id]["num"] -= number;
+		printLog("消费了"+number+printEntity(idleMoney))
 		return true;
 	}
 	else{
-		print_log("余额不足")
+		printLog("余额不足")
 		return false;
 	}
 }
 
 //返回当前背包中的货币数量
 function return_package_money(){
-	return package[money.id]["num"];
+	return package[idleMoney.id]["num"];
 }
 
 

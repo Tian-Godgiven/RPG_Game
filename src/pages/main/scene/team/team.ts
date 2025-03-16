@@ -1,8 +1,10 @@
-import { printLog } from "../../information/logs"
+import type { Character } from "../../../../interface/entity/Character"
+import type { Entity } from "../../../../interface/entity/Entity"
+import { printLog } from "../../../information/logs"
 import { changeScene } from "../scene"
 
 //小队对象，里面存储着当前小队人物，id:character的形式
-const team  = new Array()
+const team:Record<string,Character> = {}
 
 //显示到小队界面
 export function changeToTeam(){
@@ -37,73 +39,73 @@ $("#camera_movement #team").on("mousedown",".teamMember",function(){
 		,"寒暄着近况","商议了工作","分析了敌人","整理了经验","善意地相互调侃","亲切地交流"
 		,"共享情报","相互鼓励","谈论起最近的新闻","讨论着队伍","聊到家人","聊了聊羞羞的话题"]
 	var theText = talktexts[Math.floor(Math.random() * talktexts.length)]
-	print_log("你与"+make_log_span(this.id)+ theText)
+	printLog("你与"+printEntity(this.id)+ theText)
 
 	show_jianjie_teamMember(character[this.id])
 })
 
 //小队人员详情界面
 function show_jianjie_teamMember(character){
-//称号
-	var title
-	if(character["title"] != ""){
-		title = "&lt;"+character["title"]+"&gt;"
-	}
-	else{
-		title = "无称号"
-	}
-	title.className="team_page_title"
-//状态效果
-	var effects = character["effect"]
-	var effects_div = ""
-	for(i in effects){
-		if(i==0){
-			effects_div = "无"
-			break;
-		}
-		var effect = i;
-		var stack = character["effect"][i]
-		if(stack != undefined){
-			effects_div += "<div>『"+effect+stack+"』</div>"
-		}
-		else{
-			effects_div += "<div>『"+effect+"』</div>"
-		}
-	}
-//武器和防具
-	var weapons = character["weapon"]
-	var weapons_div=""
-	if(typeof weapons === "object"){
-		for(i in weapons){
-			weapons_div += '<div id='+i+' class="entity">'+weapons[i]["name"]+'</div>'
-		}
-	}
+    //称号
+        var title
+        if(character["title"] != ""){
+            title = "&lt;"+character["title"]+"&gt;"
+        }
+        else{
+            title = "无称号"
+        }
+        title.className="team_page_title"
+    //状态效果
+        var effects = character["effect"]
+        var effects_div = ""
+        for(i in effects){
+            if(i==0){
+                effects_div = "无"
+                break;
+            }
+            var effect = i;
+            var stack = character["effect"][i]
+            if(stack != undefined){
+                effects_div += "<div>『"+effect+stack+"』</div>"
+            }
+            else{
+                effects_div += "<div>『"+effect+"』</div>"
+            }
+        }
+    //武器和防具
+        var weapons = character["weapon"]
+        var weapons_div=""
+        if(typeof weapons === "object"){
+            for(i in weapons){
+                weapons_div += '<div id='+i+' class="entity">'+weapons[i]["name"]+'</div>'
+            }
+        }
 
-	var armers = character["armer"]
-	var armers_div=""
-	if(typeof armers === "object"){
-		for(i in armers){
-			armers_div += '<div id='+i+' class="entity">'+armers[i]["name"]+'</div>'
-		}	
-	}
-//武器熟练度
-	var proficiencies = character["proficiency"]
-	var proficiencies_div = ""
-	for(i in proficiencies){
-		if(i==0){
-			proficiencies_div = "无"
-			break;
-		}
-		var proficiency = i;
-		var num = character["proficiency"][i]
-		if(num != undefined){
-			proficiencies_div += "<div>["+proficiency+"："+num+"]</div>"
-		}
-		else{
-			proficiencies_div += "<div>『"+proficiency+"』</div>"
-		}
-	}
-//技能
+        var armers = character["armer"]
+        var armers_div=""
+        if(typeof armers === "object"){
+            for(i in armers){
+                armers_div += '<div id='+i+' class="entity">'+armers[i]["name"]+'</div>'
+            }	
+        }
+    //武器熟练度
+        var proficiencies = character["proficiency"]
+        var proficiencies_div = ""
+        for(i in proficiencies){
+            if(i==0){
+                proficiencies_div = "无"
+                break;
+            }
+            var proficiency = i;
+            var num = character["proficiency"][i]
+            if(num != undefined){
+                proficiencies_div += "<div>["+proficiency+"："+num+"]</div>"
+            }
+            else{
+                proficiencies_div += "<div>『"+proficiency+"』</div>"
+            }
+        }
+    //技能
 	var physical = character["physicalSkill"]
 	var physical_div = ""
 	if(typeof physical === "object"){
@@ -131,8 +133,14 @@ function show_jianjie_teamMember(character){
 	else{
 		magical_div += "<div>"+magical+"</div>"
 	}
+    //生成page
+    makePage()
+
+}
+
 //生成page
-	$("#team_pages").html('\
+function makePage(){
+    $("#team_pages").html('\
 		<div class="team_page_title"><div>'+title+'</div></div>\
 		\
 		<div class="dashed_line"></div>\
@@ -243,7 +251,6 @@ function show_jianjie_teamMember(character){
 			<div>简介：</div>\
 			<div>'+character["description"]+'</div>\
 		</div>')
-
 }
 
 
@@ -289,11 +296,11 @@ $(document).on("mousedown", function(event) {
 			"color":"white",
 			"background-color":"black"
 		})
-		var price = parseInt(All_entity[the_character]["price"])
+		var price = parseInt(AllEntity[the_character]["price"])
 		if(use_money(price)){
 			$("#recruit_confirm").hide()
 			$("#recruit_recruit").html("招募成功")
-			join_team(All_entity[the_character])
+			joinTeam(AllEntity[the_character])
 			setTimeout(function(){
 				$("#adventurers_table #"+the_character).remove()
 			},500)
@@ -309,22 +316,24 @@ $(document).on("mousedown", function(event) {
 	})
 
 //加入小队，把这个对象加入team，放入小队的left_block中
-function join_team(character){
-	var id = character["id"];
+export function joinTeam(character:Character){
+	const id = character["id"];
+    //该对象必须不在小队内
 	if(!(id in team)){
 		team[id]=character
-		var name = character["name"];
-		var level = character["level"];
-		var tr = document.createElement("tr");
+		const name = character["name"];
+		const level = character["level"];
+        //打印小队列表
+		const tr = document.createElement("tr");
 			$(tr).html('<td id="'+id+'" class="teamMember city_left_block .sortable_item"> \
 							<div class="triangle"></div>'+name+' lv.'+level+'</td>')
 			$("#camera_movement #team").append(tr)
 
 		if(Object.keys(team).length>1){
-			print_log(make_log_span(id)+"成为了队友")
+			printLog(printEntity(id)+"成为了队友")
 		}
 		else{
-			print_log(make_log_span(id)+"组建了队伍")
+			printLog(printEntity(id)+"组建了队伍")
 		}
 	}
 }
@@ -332,7 +341,7 @@ function join_team(character){
 //移出小队
 
 $("#team_pages").on("mousedown",".entity",function(){
-	var entity = All_entity[this.id]
+	var entity = AllEntity[this.id]
 	show_jianjie(entity)
 })
 

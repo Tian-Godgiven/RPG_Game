@@ -51,8 +51,7 @@
             </table>
         </div>
 
-        <div id="team_pages" class="team">
-        </div>
+        <Team></Team>
 
         <div id="move_maps" class="move">
             <div id="world_map">
@@ -64,7 +63,7 @@
 </div>
 
 <script lang='ts'>
-
+import Team from "../team/Team.svelte";
 </script>
 
 <style scoped lang='scss'>

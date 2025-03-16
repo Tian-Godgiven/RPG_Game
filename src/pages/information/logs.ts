@@ -1,3 +1,6 @@
+import type { Entity } from "../../interface/entity/Entity"
+import { AllEntity } from "../../lib/hooks/ability_function"
+
 export const logList:(string|string[])[] = []
 //打印日志信息
 export function printLog(text:string){
@@ -5,20 +8,22 @@ export function printLog(text:string){
 }
 
 //打印事物信息
-export function make_log_span(target){
+export function printEntity(target:Entity){
+    let id:string|null = null
 	if(typeof target == "object"){
 		id = target["id"]
 	}
 	else if(typeof target == "string"){
 		id = target
 	}
-
-	var name = All_entity[id]["name"]
-	var span = '<span id="' + id + '"class="entity" >'+name+'</span>'
-	return span;
+    if(id){
+        const name = AllEntity[id]["name"]
+        const span = '<span id="' + id + '"class="entity" >'+name+'</span>'
+        return span;
+    }
 }
 
 $("#logs").on("mousedown",".entity",function(){
-	var entity = All_entity[this.id]
+	var entity = AllEntity[this.id]
 	show_jianjie(entity)
 })

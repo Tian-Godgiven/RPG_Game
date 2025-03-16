@@ -1,10 +1,13 @@
+import type { Area } from "../../interface/entity/Area"
+import type { Entity } from "../../interface/entity/Entity"
+
 const weapon  = new Array()
 const armer  = new Array()
 const item  = new Array()
 const race = new Array()
-const area = new Array()
+const area:Area[] = []
 const character = new Array()
-export const AllEntity= new Array()
+export const AllEntity:Record<string,Entity> = {}
 
 //异步调用d3.csv(),通过csv文件生成对应的对象数据，使用商店名和对应商品的数据组生产商店清单
 export async function readEntity(){
@@ -116,7 +119,7 @@ function return_focusing_table(table){
 }
 
 //当前聚焦的区域，主要给返回return使用
-let focusingArea
+let focusingArea:Area
 export function getFocusingArea(area?:Area){
 	if(area != null){
 		focusingArea = area;

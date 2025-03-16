@@ -1,8 +1,6 @@
 <div id="camera_city" class="camera city">
 
-    <div id="city_left" class="city left">
-        
-    </div>
+    <ShopList></ShopList>
 
     <div id="city_right" class="city right">
 
@@ -109,7 +107,7 @@
 </div>
 
 <script lang='ts'>
-
+import ShopList from "./ShopList.svelte";
 </script>
 
 <style scoped lang='scss'>

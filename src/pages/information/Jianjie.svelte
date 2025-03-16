@@ -23,6 +23,7 @@
 </div>
 
 <script lang='ts'>
+    import { AllEntity } from "../../lib/hooks/ability_function";
     import { showJianjie,undoList,redoList } from "./jianjie";
     function undo(){
         if(undoList.length==1){
@@ -38,7 +39,7 @@
         }
         //Pop出来的第二个才是上一个页面的id
         var id = undoList.pop()
-        var entity = All_entity[id]
+        var entity = AllEntity.id
         showJianjie(entity)
     }
 
@@ -53,7 +54,7 @@
         }
         //重做时，当前这个页面的Id其实已经在undo_list里面了，所以直接把redo的id给undo
         var id = redoList.pop()
-        var entity = All_entity[id]
+        var entity = AllEntity[id]
         showJianjie(entity)
     }
 </script>
