@@ -7,7 +7,7 @@
 
 <script lang='ts'>
     import { AllEntity } from "../../../../../lib/hooks/ability_function";
-    import { printLog } from "../../../../information/logs";
+    import { printLog } from "../../../../information/logs/logs";
     import { showMovementOption } from "../../../movement/movement";
     import { getMoney, getToPackage } from "../../package/package";
     import { changeScene } from "../../scene";

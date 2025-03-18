@@ -1,31 +1,26 @@
 <div id="information">
     <Jianjie></Jianjie>
-
-    <div id="logs_container">
-        <div id="logs">
-            {#each logList as log}
-                <div class="log">{log}</div>
-            {/each}
-        </div>
-    </div>
+    <Logs></Logs>
+    
 </div>
 
 <script lang='ts'>
-    import Jianjie from "./Jianjie.svelte";
-import { logList } from "./logs";
+    import Jianjie from "./jianjie/Jianjie.svelte"
+    import Logs from "./logs/Logs.svelte";
 </script>
 
 <style scoped lang='scss'>
 
-#logs{
-	width:100%;
-	height:100%;
-	overflow:auto;
+#information{
+	float:right;
+	width:230px;
+	height:500px;
 }
-#logs > div{
-	line-height:15px;
-	font-size:15px;
-	margin-left:2px;
-	margin-top:7px;
-}
+
+
+
+
+
+
+
 </style>

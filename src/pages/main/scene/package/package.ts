@@ -1,5 +1,6 @@
 import type { Entity } from "../../../../interface/entity/Entity";
-import { printEntity, printLog } from "../../../information/logs";
+import { AllEntity } from "../../../../lib/hooks/ability_function";
+import { printLog } from "../../../information/logs/logs";
 import { changeScene } from "../scene";
 
 //背包对象，以id:obj形式保存背包内的物品与道具
@@ -169,7 +170,7 @@ export function getToPackage(obj:Entity,number:number){
 	else{
 		packages[obj.id]["num"] += number;
 	}
-	printLog('获得了' + printEntity(obj) + 'x'+ number)
+	printLog('获得了' , obj , 'x', number)
 }
 
 //从背包内使用道具时，首先判断使用需求，满足时将obj对象的数量减少，若数量不足，则返回false
@@ -178,7 +179,7 @@ function use_from_package(target_id,obj_id,number){
 	var type = $("#package_use_top").html()
 	//数量不足
 	if(obj["num"] < number){
-		printLog(printEntity(obj_id) + "的数量不足")
+		printLog(obj , "的数量不足")
 		return false
 	}
 	//数量足够则减少并更新数量栏的内容
@@ -344,12 +345,14 @@ var object
 //但是都要先过一次use_from_package看看数量够不够
 $("#package_use").on("mousedown",".package_target",function(){
 	var obj_id = object.id
+    
 	var target_id = $(this).data("id")
+    const target = AllEntity[target_id]
 
 	var type = $("#package_use_top").html()
 
 	if(use_from_package(target_id,obj_id,1)){
-		printLog(printEntity(target_id) + type + "了"+ printEntity(obj_id) +"x1")
+		printLog(target, type , "了" , object , "x1")
 	}
 
 })
@@ -360,17 +363,17 @@ export function getMoney(money:Entity|null,number:number){
     //没有指定货币对象时，获取默认的货币对象
 	if(money == null){
 		packages[idleMoney.id]["num"] += number;
-		printLog("获得了"+number+printEntity(idleMoney))
+		printLog("获得了",number,idleMoney)
 	}
 	else{
 		packages[money.id]["num"] += number;
-		printLog("获得了"+number+printEntity(money))		
+		printLog("获得了",number,money)		
 	}
 }
 export function useMoney(number:number){
 	if(number <= packages[idleMoney.id]["num"]){
 		packages[idleMoney.id]["num"] -= number;
-		printLog("消费了"+number+printEntity(idleMoney))
+		printLog("消费了",number,idleMoney)
 		return true;
 	}
 	else{
@@ -381,7 +384,7 @@ export function useMoney(number:number){
 
 //返回当前背包中的货币数量
 function return_package_money(){
-	return package[idleMoney.id]["num"];
+	return packages[idleMoney.id]["num"];
 }
 
 

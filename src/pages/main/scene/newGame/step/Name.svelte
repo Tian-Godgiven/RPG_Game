@@ -6,7 +6,7 @@
 </div>
 
 <script lang='ts'>
-    import { printLog } from "../../../../information/logs";
+    import { printLog } from "../../../../information/logs/logs";
     import { idleCharactor } from "../newGame";
     import Typed from "typed.js"
 

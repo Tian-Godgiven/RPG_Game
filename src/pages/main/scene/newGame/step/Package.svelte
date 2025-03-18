@@ -42,8 +42,8 @@
 
 <script lang='ts'>
     import { AllEntity } from "../../../../../lib/hooks/ability_function";
-    import { showJianjie } from "../../../../information/jianjie";
-    import { printLog } from "../../../../information/logs";
+    import { showJianjie } from "../../../../information/jianjie/jianjie";
+    import { printLog } from "../../../../information/logs/logs";
     import { hadList } from "../newGame";
 
     //平衡值

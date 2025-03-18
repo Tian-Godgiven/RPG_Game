@@ -25,7 +25,7 @@
 </div>
 
 <script lang='ts'>
-    import { printLog } from "../../../../information/logs";
+    import { printLog } from "../../../../information/logs/logs";
     import { idleCharactor } from "../newGame";
     let gender:"男性"|"女性"|"一个谜"
     export function onConfirm(){

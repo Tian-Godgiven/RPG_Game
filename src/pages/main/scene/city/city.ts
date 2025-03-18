@@ -1,18 +1,21 @@
+import { getFocusingArea } from "../../../../lib/hooks/ability_function";
+import { changeScene } from "../scene";
+
 //在切换不同的city页面后，把锁定清空和简介栏清空
 document.addEventListener("cityChanged",function(){
 	clicked = 0;
 	$("#entity_name").html("")
-	$("#jianjie").html('')
+	$("#jianjie_inner").html('')
 })
 
 //切换到city界面,修改当前聚焦位置
-function move_to_city(){
-	//修改title
-	$("#camera_top").html("城镇");
-	//只显示city相关内容
-	$(".camera").hide()
-	$(".city").show()
-	return_focusing_area("city")
+export function moveToCity(){
+    changeScene("city","城镇")
+	getFocusingArea({
+        id:"area_00001",
+        name:"city",
+        "num":1
+    })
 }
 
 //city内的返回功能，点击返回shop页面

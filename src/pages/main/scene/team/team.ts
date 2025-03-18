@@ -1,6 +1,6 @@
 import type { Character } from "../../../../interface/entity/Character"
 import type { Entity } from "../../../../interface/entity/Entity"
-import { printLog } from "../../../information/logs"
+import { printLog } from "../../../information/logs/logs"
 import { changeScene } from "../scene"
 
 //小队对象，里面存储着当前小队人物，id:character的形式
@@ -125,7 +125,7 @@ function show_jianjie_teamMember(character){
 	if(typeof magical === "object"){
 		for(i=0;i<magical.length;i++){
 			magical_div += "<div>"+magical[i]+"</div>"
-		}
+		} 
 	}
 	else if(magical == ""){
 		magical_div = "<div>无</div>"

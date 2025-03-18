@@ -1,8 +1,7 @@
-
-
 import type { Area } from "../../../../interface/entity/Area";
 import { getFocusingArea } from "../../../../lib/hooks/ability_function";
-import { printEntity, printLog } from "../../../information/logs";
+import { printLog } from "../../../information/logs/logs";
+import { moveToCity } from "../city/city";
 import { moveToOutside } from "../outside/outside";
 import { changeScene } from "../scene";
 
@@ -21,7 +20,7 @@ export function changeToMove(){
 }
 
 //点击【进入】键
-$("#jianjie").on("mousedown",".map_enter",function(){
+$("#jianjie_inner").on("mousedown",".map_enter",function(){
 	var id = $(this).data("id")
 	moveToArea(AllEntity[id])
 })
@@ -31,10 +30,11 @@ export function moveToArea(area?:Area){
     if(!area){
         area = getFocusingArea()
     }
-	printLog("你来到了" + printEntity(area))
+	printLog("你来到了" , area)
 
+    //前往城镇
 	if(area["name"] == "城镇"){
-		move_to_city()
+		moveToCity()
 	}
 	if(area["type"] == "野外"){
 		moveToOutside(area)

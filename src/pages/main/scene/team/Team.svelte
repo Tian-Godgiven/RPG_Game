@@ -1,5 +1,12 @@
-<div id="team_pages" class="team">
+<div>
+    <div id="movement_left" class="movement left">
+        <table id="team" class="city_left_table team"><tbody></tbody></table>
+    </div>
 
+    <div id="movement_right" class="movement right">
+        <div id="team_pages" class="team">
+        </div>
+    </div>
 </div>
 
 <script lang='ts'>
@@ -117,5 +124,96 @@ $("#team_pages").html('\
 </script>
 
 <style scoped lang='scss'>
+#team{
+	display:none;
+}
 
+#team_pages{
+	overflow:hidden;
+}
+
+#team_pages :: {
+	overflow-x:hidden;
+}
+#jianjie_inner > .team_page > div:first-of-type,
+#jianjie_inner > div > .team_page > div:first-of-type{
+  	    white-space: nowrap; /*禁止文本换行*/
+}
+
+#team_pages > div{
+	margin:5px 5px;
+}
+
+.team_page{
+	display: flex;
+}
+
+.team_page_wrap{
+	display: flex;
+	flex-wrap:wrap;
+}
+
+.team_page_title{
+	font-weight:bold;
+	text-align:center;
+}
+
+.team_page_top div div{
+	width:140px
+}
+
+.team_page_top .team_page_effect div {
+  width: unset;
+}
+
+.team_page_equipment div div div div{
+	width:180px;
+}
+.team_page_equipment > .team_page > div:first-of-type,
+.team_page_equipment > .team_page > div:last-of-type {
+  	    white-space: nowrap; /*禁止文本换行*/
+}
+
+.team_page_status div div div{
+	width:180px;
+}
+
+
+
+.team_page_coefficient div div div div{
+	width:90px;
+}
+
+.team_page_coefficient div div div :nth-child(2){
+	text-align:right;
+}
+
+.team_page_coefficient div div div:nth-child(4){
+	text-align:right;
+	width:80px;
+}
+
+.team_page_description :first-child{
+  	    white-space: nowrap; /*禁止文本换行*/
+
+}
+
+#adventurer_recruit{
+	position:absolute;
+	font-size:18px;
+	display: flex;
+}
+
+#adventurer_recruit :first-child{
+	margin-right:4px;
+}
+
+#adventurer_recruit div{
+	display:none;
+	padding:0 10px;
+	text-align: center;
+	border-radius:3px;
+	border:2px solid black;
+	box-sizing:border-box;
+}
 </style>

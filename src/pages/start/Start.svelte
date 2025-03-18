@@ -17,11 +17,11 @@
 
     export const list = [
     {   text:"新的冒险",click:()=>{
-            changePage()
+            changeToMain()
             startNewgame()
         }
     },{ text:"旧的冒险",click:()=>{
-            changePage()
+            changeToMain()
             startOldgame()
         }
     },{ text:"设置",click:()=>{}
@@ -30,7 +30,7 @@
     const lastBlock = list.at(-1)
 
     //切换到主界面
-    function changePage(){
+    function changeToMain(){
         controlPage("start",false)
         controlPage("main",true)
         controlPage("information",true)

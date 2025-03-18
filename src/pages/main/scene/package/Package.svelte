@@ -19,23 +19,7 @@
                 <div class="triangle"></div>货币</td></tr>
             </tbody>
         </table>
-
-        <table id="team" class="city_left_table team"><tbody></tbody></table>
-
-        <table id="move" class="city_left_table move">
-            <tbody>
-                <tr><td class="move city_left_block sortable_item">
-                <div class="triangle"></div>地图</td></tr>
-                <tr><td class="move city_left_block sortable_item">
-                <div class="triangle"></div>据点</td></tr>
-                <tr><td class="move city_left_block sortable_item">
-                <div class="triangle"></div>野外</td></tr>
-                <tr><td class="move city_left_block sortable_item">
-                <div class="triangle"></div>地牢</td></tr>
-                <tr><td class="move city_left_block sortable_item">
-                <div class="triangle"></div>副本</td></tr>
-            </tbody>
-        </table>
+        
     </div>
 
     <div id="movement_right" class="movement right">
@@ -50,15 +34,7 @@
             <table id="package_all_table" class="package package_page city_right_page">
             </table>
         </div>
-
-        <Team></Team>
-
-        <div id="move_maps" class="move">
-            <div id="world_map">
-
-
-            </div>
-        </div>
+        
     </div>
 </div>
 
@@ -68,4 +44,30 @@ import Team from "../team/Team.svelte";
 
 <style scoped lang='scss'>
 
+
+#package_use{
+	position:absolute;
+	font-size:18px;
+}
+
+
+#package_use{
+	display:none;
+	width:122px;
+	max-height:24px;
+	overflow:hidden;
+	border-radius:3px;
+	border:2px solid black;
+}
+
+#package_use_targetsContainer{
+	overflow:auto;
+	height:0px;
+
+}
+
+#package_use_top{
+	position:relative;
+	text-align: center;
+}
 </style>

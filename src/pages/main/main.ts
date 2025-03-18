@@ -1,5 +1,5 @@
 import { AllEntity, readEntity } from "../../lib/hooks/ability_function"
-import { showJianjie } from "../information/jianjie"
+import { showJianjie } from "../information/jianjie/jianjie"
 import { changeMovement } from "./movement/movement"
 
 //读取对象

@@ -61,7 +61,7 @@ table td{
 }
 
 #city_left , #movement_left{
-	float:left;
+	float: left;
 	display: inline-block;
 	overflow:auto;
 	width:140px;
@@ -117,24 +117,6 @@ table td{
 
 
 
-#information{
-	float:right;
-	width:230px;
-	height:500px;
-}
 
-
-
-
-
-
-#logs_container{
-	width:228px;
-	height:150px;
-	border:2px solid black;
-	-webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-           box-sizing: border-box;
-}
 
 

@@ -5,7 +5,7 @@
 
 <script lang='ts'>
     import { AllEntity } from "../../../../../lib/hooks/ability_function";
-    import { printLog } from "../../../../information/logs";
+    import { printLog } from "../../../../information/logs/logs";
     import { idleCharactor } from "../newGame";
     
     export function onConfirm(){
