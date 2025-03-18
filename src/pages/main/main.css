@@ -44,21 +44,7 @@ table td{
 }
 
 
-.camera{
-	margin:2px;
-	width:596px;
-	height:316px;
-}
 
-#camera_top{
-	margin:2px auto;
-	border:2px solid black;
-	text-align: center;;
-	font-size:30px;
-	width:596px;
-	height:48px;
-           box-sizing: border-box;
-}
 
 #city_left , #movement_left{
 	float: left;

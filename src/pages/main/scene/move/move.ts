@@ -7,14 +7,8 @@ import { changeScene } from "../scene";
 
 //点击【移动】切换至move界面
 export function changeToMove(){
+
     changeScene("move","移动")
-    
-	//仅显示相应的div
-	$(".movement").children().hide()
-	$(".movement").show()
-
-	$(".move").show()
-
 	printLog("你寻觅前方……")
 
 }
@@ -91,7 +85,7 @@ function unlock_after(area){
 }
 //地图信息展示
 $("#world_map").on("mousedown",".map_div",function(){
-	show_jianjie(AllEntity[this.id])
+	showJianjie(AllEntity[this.id])
 })
 
 

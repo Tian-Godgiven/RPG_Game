@@ -1,3 +1,27 @@
+<div id="buy_block_ability">
+    <div id="buy_block_folded">
+        <img src="./img/buy_block_folded.png"></div>
+    <div id="buy_block">
+        <div class="buy_block_top">
+            购物篮
+            <div id="buy_block_clear"><img src="./img/clear.png"></div>
+            <div id="buy_block_fold"><img src="./img/up.png"></div>
+        </div>
+        <div class="dashed_line"></div>
+
+        <div id="buy_block_inner"></div>
+        <div class="dashed_line"></div>
+
+        <div class="buy_block_bottom">
+            <div>余额：<div id="buy_block_packagevalue"></div></div>
+            <div>总价：<div id="buy_block_totalprice">0G</div></div>
+        </div> 
+
+        <div id="buy_block_confirm" class="hover_black">确认</div>
+    </div>
+</div>
+
+<script lang='ts'>
 //购物篮变量，是一个字典，以obj.id:obj作为键值对，其中的Obj有一个额外属性num表示数量
 var buyBlock = new Array()
 var totalprice = 0;
@@ -133,3 +157,8 @@ $("#buy_block").on("mousedown","#buy_block_clear",function(){
 		$("#buy_block_folded").hide()
 	}
 	
+</script>
+
+<style scoped lang='scss'>
+
+</style>

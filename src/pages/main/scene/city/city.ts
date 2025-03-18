@@ -1,4 +1,6 @@
-import { getFocusingArea } from "../../../../lib/hooks/ability_function";
+import { getFocusingArea, getFocusingTable } from "../../../../lib/hooks/ability_function";
+import { showJianjie } from "../../../information/jianjie/jianjie";
+import { printLog } from "../../../information/logs/logs";
 import { changeScene } from "../scene";
 
 //在切换不同的city页面后，把锁定清空和简介栏清空
@@ -30,7 +32,7 @@ $("#movement_container").on("mousedown","#movement_return",function(){
 //点击商店界面的具体对象，使得information栏显示该物品的简介，并加入购物篮
 $(".shop_page").on("mousedown",".object",function(){
 	var obj = AllEntity[this.id]
-	show_jianjie(obj)
+	showJianjie(obj)
 	unfold_buy_block()
 	add_into_buyBlock(obj)
 })
@@ -69,7 +71,7 @@ $(".shop_page").on("mousedown",".object",function(){
 //针对冒险者工会的功能
 $(".shop_page").on("mousedown",".character",function(){
 	var character = AllEntity[this.id]
-	show_jianjie(character)
+	showJianjie(character)
 })
 
 
@@ -143,7 +145,7 @@ function adventurer_list(CharacterDatas){
 			$(".city_right_page").hide()
 			table.show()
 
-			return_focusing_table(table)
+			getFocusingTable(table)
 			clear_select()
 			make_select_block(shop_id)
 		
@@ -164,7 +166,7 @@ function adventurer_list(CharacterDatas){
 		$(".city_right_page").hide()
 		table.show()
 		
-		return_focusing_table(table)
+		getFocusingTable(table)
 		clear_select()
 		make_select_block(shop_id)
 	})

@@ -1,4 +1,5 @@
 import type { Area } from "../../interface/entity/Area"
+import type { Character } from "../../interface/entity/Character"
 import type { Entity } from "../../interface/entity/Entity"
 
 const weapon  = new Array()
@@ -6,7 +7,7 @@ const armer  = new Array()
 const item  = new Array()
 const race = new Array()
 const area:Area[] = []
-const character = new Array()
+export const character:Character[] = [] //人物数组
 export const AllEntity:Record<string,Entity> = {}
 
 //异步调用d3.csv(),通过csv文件生成对应的对象数据，使用商店名和对应商品的数据组生产商店清单
@@ -110,8 +111,8 @@ function smaller_dictionary_property(data){
 }
 
 //当前聚焦的表，主要给筛选select和购物篮buy_block使用
-let focusing_table
-function return_focusing_table(table){
+let focusing_table:any[] = []
+export function getFocusingTable(table:any[]|null){
 	if(table != null){
 		focusing_table = table;
 	}

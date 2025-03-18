@@ -2,6 +2,7 @@ import type { Entity } from "./Entity";
 
 export type Character = {
     id:string,
+    title:string,
     name:string,
     race:string,
     level:string,

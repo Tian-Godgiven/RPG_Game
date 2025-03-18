@@ -1,4 +1,4 @@
-<div id="camera_outside" class="camera outside">
+<div id="outside" class="scene outside">
     <div id="outside_block" class="outside">
         <div id="team_bar">
             <div id="team_bar_top">

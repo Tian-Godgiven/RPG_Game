@@ -1,4 +1,4 @@
-<div id="camera_movement" class="camera movement">
+<div class="scene movement">
 
     <div id="movement_left" class="movement left">
         <table id="package" class="city_left_table package">

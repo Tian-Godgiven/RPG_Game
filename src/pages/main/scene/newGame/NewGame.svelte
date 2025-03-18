@@ -1,8 +1,8 @@
-<div id="newGame" class="camera">
+<div id="newGame" class="scene">
     <!-- svelte-ignore a11y_click_events_have_key_events -->
      <!-- svelte-ignore a11y_no_static_element_interactions -->
     <div id="character">
-        <svelte:component this={list[stepIndex]} bind:this={child} />        
+        <svelte:component this={list[stepIndex]} bind:this={stepDiv} />        
         
         <div id="confirm" on:click={onConfirm} class="choice hover_black">
             确认
@@ -26,10 +26,10 @@
 
     const list = [Name,Race,Gender,Status,Package,Description,Ready]
 
-    let child:SvelteComponent
+    let stepDiv:SvelteComponent
     function onConfirm(){
         //执行子元素中的onConfirm函数
-        const tmp = child.confirm()
+        const tmp = stepDiv.confirm()
         //到下一页
         if(!tmp){
             nextPage()

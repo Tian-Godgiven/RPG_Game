@@ -1,5 +1,5 @@
 import type { Entity } from "../../../../interface/entity/Entity";
-import { AllEntity } from "../../../../lib/hooks/ability_function";
+import { AllEntity, getFocusingTable } from "../../../../lib/hooks/ability_function";
 import { printLog } from "../../../information/logs/logs";
 import { changeScene } from "../scene";
 
@@ -27,14 +27,8 @@ export function changeToPackage(){
     //切换到界面
     changeScene("package","背包")
 
-    //显示相应的部分，由于camera也是.movement，所以先隐藏其他的page
-    $(".movement").children().hide()
-    $(".movement").show()
-    //显示package相关的所有内容
-    $(".package").show()
-
     package_list(package)
-    return_focusing_table($("#package_all_table"))//背包界面只有这一个表
+    getFocusingTable($("#package_all_table"))//背包界面只有这一个表
     //默认选中“全部”一栏
     focusing_type = "all";
     change_package_table(focusing_type)
@@ -155,7 +149,7 @@ function change_package_table(type){
 //点击背包里的物品，同样会在jianjie中显示信息
 $(".package_page").on("mousedown",".entity",function(){
 	var obj = packages[this.id]
-	show_jianjie(obj)
+	showJianjie(obj)
 })
 
 
@@ -387,7 +381,7 @@ function return_package_money(){
 	return packages[idleMoney.id]["num"];
 }
 
-
+//排序功能
 var sortableEl = document.querySelector('#package tbody');
 
 new Sortable(sortableEl, {
