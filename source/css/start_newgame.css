@@ -1,0 +1,194 @@
+#camera_newgame{
+	display:none;
+}
+
+#newgame_character{
+	position:relative;
+	
+	font-size:18px;
+
+	width:596px;
+	height:316px;
+	border:2px solid black;
+	box-sizing:border-box;
+
+	display: flex;
+  	align-items: center;
+    justify-content: center; /* 水平居中 */
+}
+
+#who_are_you input{
+	width:100px;
+	font-size:18px;
+	position:relative;
+	padding:0px;
+	border:none;
+	border-bottom:2px solid black;
+}
+
+#who_are_you input:focus{
+	padding:0px;
+	border:none;
+	border-bottom:2px solid black;
+	outline:none;
+}
+
+#which_are_you{
+	display:flex;
+}
+
+	#which_are_you_top{
+		display: flex;
+	  	align-items: center;
+	}
+
+	#which_are_you_inner{
+		width:50px;
+	}
+
+
+#status_of_you{
+		position:relative;
+		left:-20px;
+		display:flex;
+	}		
+
+#status_of_you_top{
+	text-align:center;
+}
+
+		#status_block{
+			display:flex;
+		}
+			#status_block div div :first-child{
+				width:55px;
+			}
+
+			#status_block div div :nth-child(2){
+				width:40px;
+			}
+			#status_block div div div img{
+				max-height:20px;
+				max-width:20px;
+				position:relative;
+				top:3px;
+			}
+			#status_block div div{
+				display: flex;
+				justify-content: flex-end;
+			}
+
+
+#coefficient_of_soul{
+	position:absolute;
+	right:20px;
+	top:20px;
+}
+
+
+#coefficient_of_body{
+	position:absolute;
+	left:20px;
+	top:20px;
+}
+
+#coefficient_of_body_inner > div , #coefficient_of_soul_inner > div{
+	display: flex;
+}
+
+#what_you_had{
+	display:flex;
+	text-align:center;
+	position:relative;
+	top:-30px;
+}
+
+#what_you_had_balance {
+	position:relative;
+	top:15px;
+	display:flex;
+	align-items: center;
+}
+
+#what_you_had_balance #balance_num{
+	position:absolute;
+	width:20px;
+	text-align:right;
+	top:70px;
+	left:34px;
+}
+
+#what_you_had_balance img{
+	max-height:50px;
+ 	padding:0px -20px;
+}
+
+#what_you_want , #what_you_lost{
+
+	overflow:auto;
+	width:152px;
+	height:200px;
+	border:2px solid black;
+	border-radius:3px;
+}
+
+
+
+#what_you_want div, #what_you_lost div{
+	height:25px;
+	width:146px;
+
+	padding:2px;
+
+	text-align:left;
+	border-bottom:2px dotted; black;
+
+
+}
+#what_you_had span,#what_you_had span{
+	float:right;
+}
+
+#description_of_you{
+	position:relative;
+	top:-30px;
+	text-align:center;
+}
+
+	#description_of_you textarea{
+		border:2px solid black;
+		font-size:16px;
+		width:300px;
+		height:150px;
+		max-width:300px;
+		max-height:150px;
+	}
+
+.newgame_character_page{
+	display:none;
+}
+
+.newgame_character_choice{
+	position:absolute;
+	bottom:30px;
+
+	display: flex;
+  	align-items: center;
+    justify-content: center; /* 水平居中 */
+
+	font-size:20px;
+	width:80px;
+	height:30px;
+
+	border:2px solid black;
+	border-radius:3px;
+	box-sizing:border-box;
+}
+
+#newgame_character_confirm{
+	left:210px;
+}
+
+#newgame_character_return{
+	right:210px;
+}
