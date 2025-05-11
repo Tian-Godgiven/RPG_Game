@@ -14,10 +14,10 @@ export function changeToMove(){
 }
 
 //点击【进入】键
-$("#jianjie_inner").on("mousedown",".map_enter",function(){
-	var id = $(this).data("id")
-	moveToArea(AllEntity[id])
-})
+// $("#jianjie_inner").on("mousedown",".map_enter",function(){
+// 	var id = $(this).data("id")
+// 	moveToArea(AllEntity[id])
+// })
 
 //前往某一地点
 export function moveToArea(area?:Area){
@@ -40,22 +40,22 @@ export function moveToArea(area?:Area){
 
 
 //生成地图
-var map
-function make_map(areaData) {
+let map:Area[] = []
+function make_map(areaData:Area[]) {
 	//将已有的地图清空
-	$("#world_map").html("")
+    map = []
+	// $("#world_map").html("")
 	if(areaData != null){
 		map = areaData;
 	}
-	for(i in map){
-		var area = map[i]
+	for(let area of map){
 		//只显示已经解锁的地图
-		if(area["locked"] == "false"){
+		if(area["locked"] === false){
 			//如果这是起点,那么前面就不加箭头，并且从新的一行开始
-			if(area["before"] == ""){
-				$("#world_map").append('<div class="map_line">\
-						<div id="'+area["id"]+'" class="map_div hover_black">'+area["name"]+'</div>\
-					   </div>')
+			if(area["before"] == null){
+				// $("#world_map").append('<div class="map_line">\
+				// 		<div id="'+area["id"]+'" class="map_div hover_black">'+area["name"]+'</div>\
+				// 	   </div>')
 			}
 			//否则就在前面加上箭头，并加入到before的后方
 			else{
@@ -65,7 +65,7 @@ function make_map(areaData) {
 				//只有一个前置点
 				if(before.length == 1){
 					//加入对应的before后面
-					$("#"+ before[0]).after(div)
+					// $("#"+ before[0]).after(div)
 				}
 				else{
 					console.log("多前置点还没有做捏。")
@@ -77,26 +77,26 @@ function make_map(areaData) {
 }
 
 //解锁地图
-function unlock_after(area){
-	//将地图对应的下一张地图解锁
-	after = Object.keys(area["after"])
-	map[after]["locked"] = "false"
-	make_map()
-}
+// function unlock_after(area:Area){
+// 	//将地图对应的下一张地图解锁
+// 	after = Object.keys(area["after"])
+// 	map[after]["locked"] = "false"
+// 	make_map()
+// }
 //地图信息展示
-$("#world_map").on("mousedown",".map_div",function(){
-	showJianjie(AllEntity[this.id])
-})
+// $("#world_map").on("mousedown",".map_div",function(){
+// 	showJianjie(AllEntity[this.id])
+// })
 
 
 //地图拖拽
-$("#world_map").draggable({
-	drag: function(event, ui) {
-	    if (ui.position.left > 0 ){
-	      	ui.position.left = 0;
-	    }
-	    if (ui.position.top >0){
-	    	ui.position.top = 0
-	    }
-	}
-})
+// $("#world_map").draggable({
+// 	drag: function(event, ui) {
+// 	    if (ui.position.left > 0 ){
+// 	      	ui.position.left = 0;
+// 	    }
+// 	    if (ui.position.top >0){
+// 	    	ui.position.top = 0
+// 	    }
+// 	}
+// })

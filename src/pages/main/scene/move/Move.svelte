@@ -2,15 +2,14 @@
     <div id="left" class="movement left">
         <table id="move" class="city_left_table move">
             <tbody>
-                {#each list as item}
-                <tr>
-                    <td class="move city_left_block sortable_item">
-                    <div class="triangle"></div>
-                        {item}
-                    </td>
-                </tr>
-                {/each}
-                
+            {#each list as item}
+            <tr>
+                <td class="move city_left_block sortable_item">
+                <div class="triangle"></div>
+                    {item}
+                </td>
+            </tr>
+            {/each}
             </tbody>
         </table>
     </div>

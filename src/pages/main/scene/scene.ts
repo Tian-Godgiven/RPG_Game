@@ -7,7 +7,7 @@ import Team from "./team/Team.svelte"
 
 //切换不同场景
 type SceneName = "newGame"|"city"|"outside"|"move"|null|"package"|"team"
-export let nowScene:{scene:typeof City | false,title:string} //当前显示的场景
+export let nowScene:{scene:typeof City | false,title:string}={scene:false,title:""} //当前显示的场景
 export function changeScene(sceneName:SceneName|null,title?:string){
     //显示指定的场景
     switch(sceneName){

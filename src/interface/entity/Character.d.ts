@@ -2,19 +2,27 @@ import type { Entity } from "./Entity";
 
 export type Character = {
     id:string,
-    title:string,
+    title:string|null,//称号
+    exp:{
+        now:number,
+        max:number
+    },//经验
     name:string,
     race:string,
     level:string,
-    status:string,
+    status:Record<string,number>,
     gender:string,
     profession:string,
     weapon:string,
     armer:string,
     physicalSkill:string,
     magicalSkill:string,
+    proficiency:string
     characteristic:string,
-    description:string
+    effect:string[]
+    description:string,
+    coefficient:Record<string,number|Record<string,number>>,//系数
+    hand:number
 }
 
 export const characterDic = {

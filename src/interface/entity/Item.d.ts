@@ -1,12 +1,14 @@
 export type Item = {
     id:string,
+    name:string,
     type: string,
     price: string,
     bonus: string,
     requirement: string,
     entry: string,
     effect: string,
-    description: string
+    description: string,
+    num:number
 };
 
 export const itemDic = {

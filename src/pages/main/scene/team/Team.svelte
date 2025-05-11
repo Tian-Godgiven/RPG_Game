@@ -57,7 +57,7 @@
 	overflow:hidden;
 }
 
-#team_pages :: {
+#team_pages{
 	overflow-x:hidden;
 }
 #jianjie_inner > .team_page > div:first-of-type,

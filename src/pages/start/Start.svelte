@@ -44,6 +44,7 @@
 	width:calc(100% - 4px);
 	height:calc(100% - 4px);
     .title{
+        background-color: white;
         display: flex;
         align-items: center;
         justify-content: center; /* 水平居中 */
@@ -58,7 +59,6 @@
         width:100%;
 	    height:60%;
 	    display:flex;
-        
     }
 }
 </style>

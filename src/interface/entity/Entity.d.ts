@@ -1,4 +1,4 @@
-import type Race from "../../pages/main/scene/newGame/step/Race.svelte";
+import type { Race } from "./Race";
 import type { Area } from "./Area";
 import type { Armer } from "./Armer";
 import type { Character } from "./Character";

@@ -1,5 +1,6 @@
 export type Weapon = {
     id:string,
+    name:string,
     type: string,
     handed: number,
     price: string,

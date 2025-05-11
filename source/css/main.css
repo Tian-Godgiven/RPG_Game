@@ -1,16 +1,6 @@
 
 
-body{
-	float:left;
-	overflow:hidden;
-	overflow-x:hidden;
-}
 
-table td{
-	margin-top:1.6px;
-	margin-left:1.6px;
-	margin-right:1.6px;
-}
 
 /*统一滚动条样式*/
 ::-webkit-scrollbar{
@@ -23,17 +13,7 @@ table td{
 }
 
 
-#all{
-	position: absolute;
-    top: 50%;
-    left: 50%;
-    -moz-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
-	width:830px;
-	height:500px;
-	border:2px solid black;
-}
+
 
 #main_div{
 	position:relative;

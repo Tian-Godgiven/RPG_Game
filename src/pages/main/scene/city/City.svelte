@@ -22,9 +22,10 @@
     import Selector from "./component/Selector.svelte";
 import ShopList from "./component/ShopList.svelte";
 
-var clicked = 0;
-function return_clicked(set){
-	if(set == "1" || set == "0"){
+//点击对象
+let clicked = 0;
+function return_clicked(set:number){
+	if(set == 1 || set == 0){
 		clicked = set
 	}
 	else{
@@ -32,56 +33,59 @@ function return_clicked(set){
 	}
 }
 
-//city_left通用特效
-	$(".left").on("mousedown",".city_left_block", function (){
-		if(clicked == 1){
-			$(".city_left_block .triangle").css("border-left-color","transparent");
-			clicked = 0;
-		}
-		else{
-			$(".city_left_block .triangle").css("border-left-color","white");
-			clicked =1;
-		}
-		$(".city_left_block").css({
-			"color":"black",
-			"background-color":"white",
-		})
+// //city_left_block通用点击特效
+//     function clickLeftBlock(){
+//         if(clicked == 1){
+// 			$(".city_left_block .triangle").css("border-left-color","transparent");
+// 			clicked = 0;
+// 		}
+// 		else{
+// 			$(".city_left_block .triangle").css("border-left-color","white");
+// 			clicked =1;
+// 		}
+// 		$(".city_left_block").css({
+// 			"color":"black",
+// 			"background-color":"white",
+// 		})
 
-		$(this).css({
-			"color":"white",
-			"background-color":"black",
-		})
-	})
+// 		$(this).css({
+// 			"color":"white",
+// 			"background-color":"black",
+// 		})
+//     }
+// 	$(".left").on("mousedown",".city_left_block", function (){
+		
+// 	})
 
-	//鼠标滑动到block，也会显示商店内容
-	$(".left").on("mouseenter",".city_left_block",function (){
-		if(clicked == 1){
-			return false;
-		}
+// 	//鼠标滑动到block，也会显示商店内容
+// 	$(".left").on("mouseenter",".city_left_block",function (){
+// 		if(clicked == 1){
+// 			return false;
+// 		}
 
-		$(".city_left_block").css({
-			"color":"black",
-			"background-color":"white",
-		})
+// 		$(".city_left_block").css({
+// 			"color":"black",
+// 			"background-color":"white",
+// 		})
 
-		$(this).css({
-			"color":"white",
-			"background-color":"black",
-		})
-	})
+// 		$(this).css({
+// 			"color":"white",
+// 			"background-color":"black",
+// 		})
+// 	})
 
-	$("body").on("mousedown mouseenter",".click_black",function (){
+// 	$("body").on("mousedown mouseenter",".click_black",function (){
 
-		$(".right .click_black").css({
-			"color":"black",
-			"background-color":"white",
-		})
+// 		$(".right .click_black").css({
+// 			"color":"black",
+// 			"background-color":"white",
+// 		})
 
-		$(this).css({
-			"color":"white",
-			"background-color":"black",
-		})
-	})
+// 		$(this).css({
+// 			"color":"white",
+// 			"background-color":"black",
+// 		})
+// 	})
 
 
 

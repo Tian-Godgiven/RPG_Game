@@ -1,3 +1,4 @@
+import type { Character } from "../../../../interface/entity/Character"
 import { AllEntity } from "../../../../lib/hooks/ability_function"
 import { showJianjie } from "../../../information/jianjie/jianjie"
 import { printLog } from "../../../information/logs/logs"
@@ -15,15 +16,17 @@ export function startNewgame(){
 }
 
 //初始角色数据
-export const idleCharactor = {
+export const idleCharactor:Character = {
     id:"character_000000",
+    title:null,
     name:"你",
-    num:1,
     race:"",
-    price:"无",
     gender:"",
     level:"1",
-    exp:"0/5",
+    exp:{
+        now:0,
+        max:5
+    },
     status:{
         力量:0,
         体质:0,
@@ -35,11 +38,23 @@ export const idleCharactor = {
         通灵:0
     },
     coefficient:{
-        生命:"5/5",
-        攻击:"0-1",
-        防御:"0-1",
+        生命:{
+            now:5,
+            max:5
+        },
+        攻击:{
+            min:0,
+            max:1
+        },
+        防御:{
+            min:0,
+            max:1
+        },
         法术量:0,
-        法术强度:"0-0",
+        法术强度:{
+            min:0,
+            max:0
+        },
         咏唱时间:0,
         活性:0,
         乱舞:0,

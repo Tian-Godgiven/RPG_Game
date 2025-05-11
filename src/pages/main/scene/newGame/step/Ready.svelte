@@ -6,7 +6,8 @@
 </div>
 
 <script lang='ts'>
-    import { AllEntity } from "../../../../../lib/hooks/ability_function";
+    import type { Money } from "../../../../../interface/entity/Money";
+    import { AllEntity, allEntityDic } from "../../../../../lib/hooks/ability_function";
     import { printLog } from "../../../../information/logs/logs";
     import { showMovementOption } from "../../../movement/movement";
     import { getMoney, getToPackage } from "../../package/package";
@@ -20,7 +21,7 @@
         for(let item of hadList){
             //钱币类
             if(item.id.includes("money")){
-                getMoney(AllEntity[item.id],item.num)
+                getMoney(allEntityDic.money[item.id],item.num)
             }
             //物品类
             else{

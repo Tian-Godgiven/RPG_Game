@@ -1,4 +1,4 @@
-<div id="select_ability">
+<!-- <div id="select_ability">
     <div id="select_block_folded">
         <img src="./img/select_block_folded.png"></div>
     <div id="select_block">
@@ -109,56 +109,56 @@ function select_types(){
 
 
 //数字筛选价格功能
-function select_price() {
-  // 获取需要的 input 元素
-  var smallInput = $('input[id="select_block_smallInput"]');
-  var bigInput = $('input[id="select_block_bigInput"]');
+// function select_price() {
+//   // 获取需要的 input 元素
+//   var smallInput = $('input[id="select_block_smallInput"]');
+//   var bigInput = $('input[id="select_block_bigInput"]');
 
-    // 获取两个 input 元素的值
-    var small = parseInt($('#select_block_smallInput').val());
-    var big = parseInt($('#select_block_bigInput').val());
+//     // 获取两个 input 元素的值
+//     var small = parseInt($('#select_block_smallInput').val());
+//     var big = parseInt($('#select_block_bigInput').val());
 
-    //获取当前正在显示shop页面
-    var focusing_table = getFocusingTable()
+//     //获取当前正在显示shop页面
+//     var focusing_table = getFocusingTable()
 
-    if(big > small){
-    //这个页面中价格大于small，且小于big的obj
-		var select_objs= $(focusing_table).children().children().filter(function(){
-			if($(this).css("display") !== "none"){
-				var obj=AllEntity[this.id]
-				if(obj != null){
-					var price = parseInt(obj["price"].match(/\d+/)[0], 10);
-					if(price >= small && price <= big){
-						return this
-					}
-				}
-				else{
-					return this
-				}
-			}
-	    })
-	    	//所有项目隐藏
-	//只有符合要求的项目显示
-	    $(focusing_table).children().children().hide()
-	    select_objs.show()
-	}
-	else if(small > big){
-		$(focusing_table).children().children().hide()
-		$(focusing_table).children().children().first().show();
-	}
+//     if(big > small){
+//     //这个页面中价格大于small，且小于big的obj
+// 		var select_objs= $(focusing_table).children().children().filter(function(){
+// 			if($(this).css("display") !== "none"){
+// 				var obj=AllEntity[this.id]
+// 				if(obj != null){
+// 					var price = parseInt(obj["price"].match(/\d+/)[0], 10);
+// 					if(price >= small && price <= big){
+// 						return this
+// 					}
+// 				}
+// 				else{
+// 					return this
+// 				}
+// 			}
+// 	    })
+// 	    	//所有项目隐藏
+// 	//只有符合要求的项目显示
+// 	    $(focusing_table).children().children().hide()
+// 	    select_objs.show()
+// 	}
+// 	else if(small > big){
+// 		$(focusing_table).children().children().hide()
+// 		$(focusing_table).children().children().first().show();
+// 	}
 	
 
- };
+//  };
 
 
 
 //清空select
-function clear_select(){
-	var focusing_table = getFocusingTable()
-	$(focusing_table).children().children().show()
-	$('#select_block_smallInput').val("0");
-	$('#select_block_bigInput').val("0");
-}
+// function clear_select(){
+// 	var focusing_table = getFocusingTable()
+// 	$(focusing_table).children().children().show()
+// 	$('#select_block_smallInput').val("0");
+// 	$('#select_block_bigInput').val("0");
+// }
 
 
 
@@ -356,4 +356,4 @@ function clear_select(){
 		background-color:black;
 	}
 
-</style>
+</style> -->

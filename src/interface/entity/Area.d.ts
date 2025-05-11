@@ -6,7 +6,9 @@ export type Area = {
     type:string,
     state:string,
     description:string,
-    information:string
+    information:string,
+    locked:boolean,//是否解锁
+    before:Area|null,//上一个地点
 }
 
 export const areaDic = {

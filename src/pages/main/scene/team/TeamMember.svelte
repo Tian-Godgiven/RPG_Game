@@ -1,4 +1,4 @@
-<div id="movement_right" class="movement right">
+<!-- <div id="movement_right" class="movement right">
 <div id="team_pages" class="team">
     <div class="team_page_title">
         <div>{称号}</div>
@@ -149,22 +149,22 @@
 
 </div>
 <script lang='ts'>
-    import { showJianjie } from "../../../information/jianjie/jianjie";
+    // import { showJianjie } from "../../../information/jianjie/jianjie";
     import { nowCharater as character } from "./team";
     
-    let effects_div
-weapons_div
-proficiencies_div
-physical_div
-magical_div
+//     let effects_div
+// weapons_div
+// proficiencies_div
+// physical_div
+// magical_div
 
 //点击其中的实体显示对应的简介
-$("#team_pages").on("mousedown",".entity",function(){
-	var entity = AllEntity[this.id]
-	showJianjie(entity)
-})
+// $("#team_pages").on("mousedown",".entity",function(){
+// 	var entity = AllEntity[this.id]
+// 	showJianjie(entity)
+// })
 </script>
 
 <style scoped lang='scss'>
 
-</style>
+</style> -->

@@ -1,5 +1,6 @@
 export type Armer = {
     id:string,
+    name:string,
     type: string,
     price: string,
     bonus: string,

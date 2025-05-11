@@ -14,7 +14,7 @@ export function controlPage(name:PageName,state:boolean){
 }
 
 //开始界面的控制
-export let showStartPage = false
+export let showStartPage = true
 function controlStartPage(state:boolean){
     showStartPage = state
 }
