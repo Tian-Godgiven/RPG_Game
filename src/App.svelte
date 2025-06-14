@@ -23,10 +23,13 @@ import { showStartPage,showMainPage,showInfoPage } from "./lib/hooks/changePage"
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
+
 	width:830px;
 	height:500px;
 	border:2px solid black;
-    float:left;
+    padding: 2px;
+    box-sizing: border-box;
+
 	overflow:hidden;
 	overflow-x:hidden;
 }

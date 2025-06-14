@@ -40,9 +40,8 @@
 
 <style lang="scss" scoped>
 #start{
-	margin:2px;
-	width:calc(100% - 4px);
-	height:calc(100% - 4px);
+	width:100%;
+	height:100%;
     .title{
         background-color: white;
         display: flex;
@@ -56,9 +55,13 @@
         box-sizing:border-box;
     }
     .inner{
+        position: relative;
         width:100%;
 	    height:60%;
+        padding-top: 2px;
+        box-sizing: border-box;
 	    display:flex;
+        gap: 2px;
     }
 }
 </style>

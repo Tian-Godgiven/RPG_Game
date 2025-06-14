@@ -1,21 +1,15 @@
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <div class="block"
+    bind:this={blackDiv}
     on:click={block.click}  
     on:mouseenter={moveIn} 
     on:mouseleave={moveOut}>
-    <div class="white" bind:this={whiteDiv}>
-        <div class="text">{block.text}</div>
-        {#if last}
-        <div class="version white">版本号：0.0.0.0.0.0.1</div>
-        {/if}
-    </div>
-    <div class="black" bind:this={blackDiv}>
-        <div class="text">{block.text}</div>
+    <div class="text">{block.text}</div>
         {#if last}
         <div class="version">版本号：0.0.0.0.0.0.1</div>
         {/if}
-    </div>
+    <div class="white" bind:this={whiteDiv}></div>
 </div>
 
 <script lang='ts'>
@@ -52,55 +46,35 @@
 .block{
     font-size:50px;
     width:25%;
-    height:calc(100% - 2px);
-    margin:2px 0;
-    margin-right:2px;
+    height:100%;
     border:2px solid black;
     border-radius:3px;
     box-sizing: border-box;
-    transform: scale(1);
-    >.white{
-        background-color:white;
-        color:black;
-
-        position:relative;
-        top: 0px;
-        left: 0px;
-        
-        height:100%;
-        width:100%;
-        z-index:1;
-        overflow:hidden;
-
-        display: flex;
-        align-items: center;
-        justify-content: center; /* 水平居中 */
-        >.text{
-            position:absolute;
-            white-space: nowrap;
-        }
-    }
-    >.black{
-        display: flex;
-        align-items: center;
-        justify-content: center; /* 水平居中 */
-        position:absolute;
-        top:0px;
-        z-index:-1;
-        background-color:black;
-        color:white;
-        height:100%;
-        width:100%;
-    }
-    >div>.version{
+    position:relative;
+    
+    height:100%;
+    width:100%;
+    
+    overflow:hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 水平居中 */
+    background-color:black;
+    color:white;
+    >.version{
         position:fixed;
         font-size:16px;
         bottom:5px;
         right:5px;
-        &.white{
-            font-size:16px;
-            position:absolute;
-        }
-    }   
+    }
+    >.white{
+        position: absolute;
+        left: 0;
+        top: 0;
+        height:100%;
+        width:100%;
+        background-color: white;
+        mix-blend-mode: difference;
+    }
 }
 </style>
